@@ -1,0 +1,13 @@
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal">Dashboard</h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+        <ng-container *ngIf="!isAuthenticated">
+            <button routerLink="/register" routerLinkActive="active" mat-stroked-button color="primary">Register</button>
+            <button routerLink="/login" routerLinkActive="active" mat-stroked-button color="primary">Login</button>
+        </ng-container>
+        <ng-container *ngIf="isAuthenticated">
+            <button routerLink="/users" routerLinkActive="active" mat-stroked-button color="primary">Users</button>
+            <button (click)="logout()" mat-flat-button color="primary" href="javascript: void(0);">Logout</button>
+        </ng-container>
+    </nav>
+</div>

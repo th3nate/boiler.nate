@@ -1,0 +1,10 @@
+@import '../../assets/themes/default/variables';
+
+nav {
+    button {
+        &.active {
+            border-color: $primary;
+        }
+        margin-left: 0.3rem;
+    }
+}

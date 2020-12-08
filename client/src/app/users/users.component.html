@@ -1,0 +1,9 @@
+<app-nav></app-nav>
+<div class="d-flex justify-content-center">
+    <mat-card class="shadow-none">
+        <h2 class="mt-5 mb-3 text-center">Available Users</h2>
+        <mat-card class="mb-2" *ngFor="let user of currentUsers; index as i; trackBy: trackByFn">
+            <pre>{{user | json}}</pre>
+        </mat-card>
+    </mat-card>
+</div>

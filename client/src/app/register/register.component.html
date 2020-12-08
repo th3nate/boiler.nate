@@ -1,0 +1,46 @@
+<app-nav></app-nav>
+<div class="d-flex justify-content-center">
+    <mat-card class="centered">
+        <h2 class="mb-3 text-center">Register</h2>
+        <p class="mb-3 text-center">Enter your credentials below to register</p>
+        <mat-divider></mat-divider>
+        <form [formGroup]="registerForm" (ngSubmit)="createNewUser()" autocomplete="off">
+            <mat-form-field class="example-full-width mt-3">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" placeholder="Enter your name" formControlName="name" required autocomplete="off" />
+                <mat-error *ngIf="registerForm.controls.name.hasError('required')">
+                    Please enter your name
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Username</mat-label>
+                <input matInput type="text" placeholder="Enter your username" formControlName="username" required autocomplete="off" />
+                <mat-error *ngIf="registerForm.controls.username.hasError('required')">
+                    Please enter your username
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Email Address</mat-label>
+                <input matInput type="email" placeholder="Enter your email" formControlName="email" required autocomplete="off" />
+                <mat-error *ngIf="registerForm.controls.email.hasError('required') || registerForm.controls.email.hasError('email')">
+                    Please enter a valid email address
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hidePassword ? 'password' : 'text'" placeholder="Enter your password" formControlName="password" required autocomplete="new-password" />
+                <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+                    <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="registerForm.controls.password.hasError('required')">
+                    Please enter your password
+                </mat-error>
+            </mat-form-field>
+            <mat-divider></mat-divider>
+            <button class="mt-3 float-right clearfix" mat-stroked-button color="primary" type="submit">Submit</button>
+        </form>
+    </mat-card>
+</div>
